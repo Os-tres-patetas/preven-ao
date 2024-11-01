@@ -12,7 +12,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-image: url("1111.jpg");
+            background-image: url("transferir.jpg"); /* Imagem 4K */
             background-size: cover;
             background-position: center;
             color: #ffffff;
@@ -32,8 +32,8 @@
         }
 
         header {
-            background: rgba(0, 100, 0, 0.9);
-            padding: 15px 0;
+            background: rgba(0, 100, 0, 0.4); /* Fundo mais transparente */
+            padding: 10px 0;
             text-align: center;
             position: fixed;
             top: 0;
@@ -44,11 +44,11 @@
         }
 
         header.scrolled {
-            background: rgba(0, 100, 0, 1); /* Escurece ao rolar */
+            background: rgba(0, 100, 0, 0.8); /* Fundo mais escuro ao rolar */
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2em; /* Tamanho menor */
             margin: 0;
             transition: transform 0.3s;
         }
@@ -61,25 +61,26 @@
 
         nav ul li {
             display: inline;
-            margin: 0 15px;
+            margin: 0 10px; /* Espaçamento menor */
         }
 
         nav ul li a {
-            color: #ffffff;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            padding: 10px 20px;
-            border: 2px solid #ffffff;
+            padding: 8px 15px; /* Padding reduzido */
+            border: 2px solid rgba(255, 255, 255, 0.8);
             border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.3s, transform 0.3s, color 0.3s;
         }
 
         nav ul li a:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
+            color: #ffffff;
         }
 
         main {
-            padding: 80px 20px 20px;
+            padding: 70px 20px 20px; /* Ajuste na parte superior para dar espaço ao cabeçalho */
             max-width: 800px;
             margin: auto;
             position: relative;
@@ -87,7 +88,7 @@
         }
 
         .section {
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+            background: rgba(0, 0, 0, 0.7); /* Mais escuro para melhor contraste */
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
@@ -143,7 +144,7 @@
 
         .button {
             display: inline-block;
-            background: #ff5722;
+            background: rgba(255, 87, 34, 0.8);
             color: #ffffff;
             padding: 10px 20px;
             border-radius: 5px;
@@ -153,7 +154,7 @@
         }
 
         .button:hover {
-            background: #ffcc00;
+            background: rgba(255, 204, 0, 0.8);
             transform: scale(1.05);
         }
 
@@ -184,7 +185,7 @@
         }
 
         a {
-            color: #ff5722;
+            color: rgba(255, 87, 34, 0.8);
             transition: color 0.3s;
         }
 
@@ -192,7 +193,6 @@
             color: #ffcc00;
         }
 
-        /* Redes sociais */
         .socials {
             margin: 20px 0;
         }
@@ -208,23 +208,22 @@
             color: #ffcc00;
         }
 
-        /* Responsividade */
         @media (max-width: 600px) {
             header h1 {
-                font-size: 2em;
+                font-size: 1.5em; /* Tamanho menor para dispositivos móveis */
             }
 
             nav ul li {
                 display: block;
-                margin: 10px 0;
+                margin: 5px 0; /* Ajuste no espaçamento */
             }
 
             nav ul li a {
-                padding: 10px;
+                padding: 8px;
             }
 
             main {
-                padding: 100px 10px 20px;
+                padding: 80px 10px 20px; /* Ajuste na parte superior para dispositivos móveis */
             }
         }
     </style>
@@ -325,7 +324,7 @@
 
         <section id="contato" class="section">
             <h2>Contato</h2>
-            <p>Para mais informações, entre em contato conosco através do e-mail: <a href="mailto:contato@juntospeloplaneta.org">contato@juntospeloplaneta.org</a></p>
+            <p>Para mais informações, entre em contato conosco através do e-mail: <a href="mailto:ecoviva922@gmail.com">ecoviva922@gmail.com</a></p>
         </section>
     </main>
 
