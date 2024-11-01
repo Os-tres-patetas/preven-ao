@@ -5,32 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juntos pelo Planeta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-image: url("Floresta Paisagem.jpeg"); 
+            background-image: url("1111.jpg");
             background-size: cover;
-            color: #080808;
+            background-position: center;
+            color: #ffffff;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         header {
-            background: rgba(0, 100, 0, 0.9); /* Torna o cabeçalho mais escuro */
-            color: #ffffff;
-            padding: 20px 0;
+            background: rgba(0, 100, 0, 0.9);
+            padding: 15px 0;
             text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(0, 100, 0, 1); /* Escurece ao rolar */
         }
 
         header h1 {
             font-size: 2.5em;
             margin: 0;
+            transition: transform 0.3s;
         }
 
         nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         nav ul li {
@@ -41,61 +67,230 @@
         nav ul li a {
             color: #ffffff;
             text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
         main {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.85); /* Aumenta a opacidade do fundo */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Aumenta a sombra para mais destaque */
+            padding: 80px 20px 20px;
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .section {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+            border-radius: 10px;
+            padding: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #ff5722;
+            padding-bottom: 10px;
+            font-size: 1.8em;
         }
 
         .section img {
             max-width: 100%;
             border-radius: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section img:hover {
+            transform: scale(1.05);
+        }
+
+        .tips ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips li {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tips li:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .tips p {
+            display: none;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ff5722;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            transition: background 0.3s;
+        }
+
+        .testimonial:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         footer {
             text-align: center;
             padding: 20px 0;
-            background: rgba(0, 100, 0, 0.9); /* Torna o rodapé mais escuro */
+            background: rgba(0, 100, 0, 0.9);
             color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
+
+        a {
+            color: #ff5722;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffcc00;
+        }
+
+        /* Redes sociais */
+        .socials {
+            margin: 20px 0;
+        }
+
+        .socials a {
+            margin: 0 10px;
+            color: #ffffff;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .socials a:hover {
+            color: #ffcc00;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
+
+            main {
+                padding: 100px 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>Juntos pelo Planeta</h1>
         <nav>
             <ul>
                 <li><a href="#dicas">Dicas de Sustentabilidade</a></li>
                 <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><a href="#testemunhos">Testemunhos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="dicas" class="section">
+        <section id="dicas" class="section tips">
             <h2>Dicas para Proteger o Meio Ambiente</h2>
             <img src="Floresta Paisagem.jpeg" alt="Sustentabilidade" />
-            <p>Adote hábitos sustentáveis e faça a diferença. Aqui estão algumas ações que você pode tomar:</p>
+            <p>Adote hábitos sustentáveis e faça a diferença. Clique nas dicas para saber mais:</p>
             <ul>
-                <li><strong>Reduza o uso de plástico:</strong> Evite produtos descartáveis. Use sacolas reutilizáveis.</li>
-                <li><strong>Recicle sempre que possível:</strong> Separe seu lixo corretamente, reciclando papel, plástico e vidro.</li>
-                <li><strong>Opte por transporte sustentável:</strong> Utilize bicicletas, transporte público ou caminhe quando possível.</li>
-                <li><strong>Consuma produtos locais:</strong> Apoie a economia local e reduza a pegada de carbono comprando alimentos da sua região.</li>
-                <li><strong>Desligue luzes e aparelhos:</strong> Ao sair de um ambiente, desligue as luzes e os eletrônicos que não estão em uso.</li>
-                <li><strong>Economize água:</strong> Tome banhos mais curtos e conserte vazamentos em casa.</li>
-                <li><strong>Use energia renovável:</strong> Considere instalar painéis solares em sua casa.</li>
-                <li><strong>Plante árvores:</strong> Participe de campanhas de reflorestamento ou plante árvores em sua área.</li>
-                <li><strong>Eduque outros:</strong> Compartilhe seu conhecimento sobre práticas sustentáveis com amigos e familiares.</li>
-                <li><strong>Participe de iniciativas:</strong> Envolva-se em grupos que promovem a conservação ambiental.</li>
+                <li>
+                    <strong>Reduza o uso de plástico:</strong>
+                    <p>Evite produtos descartáveis. Use sacolas reutilizáveis.</p>
+                </li>
+                <li>
+                    <strong>Recicle sempre que possível:</strong>
+                    <p>Separe seu lixo corretamente, reciclando papel, plástico e vidro.</p>
+                </li>
+                <li>
+                    <strong>Opte por transporte sustentável:</strong>
+                    <p>Utilize bicicletas, transporte público ou caminhe quando possível.</p>
+                </li>
+                <li>
+                    <strong>Consuma produtos locais:</strong>
+                    <p>Apoie a economia local e reduza a pegada de carbono comprando alimentos da sua região.</p>
+                </li>
+                <li>
+                    <strong>Desligue luzes e aparelhos:</strong>
+                    <p>Ao sair de um ambiente, desligue as luzes e os eletrônicos que não estão em uso.</p>
+                </li>
+                <li>
+                    <strong>Economize água:</strong>
+                    <p>Tome banhos mais curtos e conserte vazamentos em casa.</p>
+                </li>
+                <li>
+                    <strong>Use energia renovável:</strong>
+                    <p>Considere instalar painéis solares em sua casa.</p>
+                </li>
+                <li>
+                    <strong>Plante árvores:</strong>
+                    <p>Participe de campanhas de reflorestamento ou plante árvores em sua área.</p>
+                </li>
+                <li>
+                    <strong>Eduque outros:</strong>
+                    <p>Compartilhe seu conhecimento sobre práticas sustentáveis com amigos e familiares.</p>
+                </li>
+                <li>
+                    <strong>Participe de iniciativas:</strong>
+                    <p>Envolva-se em grupos que promovem a conservação ambiental.</p>
+                </li>
             </ul>
+            <a href="#galeria" class="button">Saiba Mais</a>
         </section>
 
         <section id="sobre" class="section">
@@ -105,14 +300,56 @@
             <p>Nosso objetivo é incentivar cada pessoa a fazer a diferença por meio de pequenas ações no dia a dia. Acreditamos que a conscientização é a chave para um futuro mais verde e saudável.</p>
         </section>
 
+        <section id="testemunhos" class="section">
+            <h2>O que dizem nossos apoiadores</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"Comecei a usar sacolas reutilizáveis e percebi a diferença que faço no meio ambiente!" - Ana</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Participar de campanhas de reflorestamento foi uma das melhores decisões que tomei." - João</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Agora sempre que posso, opto por produtos locais. Isso faz toda a diferença!" - Maria</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="section">
+            <h2>Galeria de Projetos</h2>
+            <img src="projeto1.jpg" alt="Projeto 1" />
+            <img src="projeto2.jpg" alt="Projeto 2" />
+            <img src="projeto3.jpg" alt="Projeto 3" />
+            <p>Veja como estamos fazendo a diferença na comunidade!</p>
+        </section>
+
         <section id="contato" class="section">
             <h2>Contato</h2>
-            <p>Para mais informações, entre em contato conosco através do e-mail: <a href="mailto:contato@juntospeloplaneta.org" style="color: #ff5722;">contato@juntospeloplaneta.org</a></p>
+            <p>Para mais informações, entre em contato conosco através do e-mail: <a href="mailto:contato@juntospeloplaneta.org">contato@juntospeloplaneta.org</a></p>
         </section>
     </main>
 
     <footer>
+        <div class="socials">
+            <a href="https://facebook.com" target="_blank">📘</a>
+            <a href="https://instagram.com" target="_blank">📸</a>
+            <a href="https://twitter.com" target="_blank">🐦</a>
+        </div>
         <p>&copy; 2024 Juntos pelo Planeta. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 0);
+        });
+
+        document.querySelectorAll('.tips li').forEach(item => {
+            item.addEventListener('click', () => {
+                const p = item.querySelector('p');
+                p.style.display = p.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 </html>
