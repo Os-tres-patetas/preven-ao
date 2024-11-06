@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juntos pelo Planeta</title>
+    <meta name="description" content="Dicas de sustentabilidade, projetos e ações ecológicas para proteger o meio ambiente. Participe de nossa missão!">
+    <title>Juntos pelo Planeta - Dicas de Sustentabilidade</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -32,10 +35,10 @@
         }
 
         header {
-            background: rgba(0, 100, 0, 0.4); /* Fundo mais transparente */
+            background: rgba(0, 100, 0, 0.4); 
             padding: 10px 0;
             text-align: center;
-            position: fixed;
+            position:relative;
             top: 0;
             width: 100%;
             z-index: 2;
@@ -44,11 +47,11 @@
         }
 
         header.scrolled {
-            background: rgba(0, 100, 0, 0.8); /* Fundo mais escuro ao rolar */
+            background: rgba(0, 100, 0, 0.8); 
         }
 
         header h1 {
-            font-size: 2em; /* Tamanho menor */
+            font-size: 2em; 
             margin: 0;
             transition: transform 0.3s;
         }
@@ -61,13 +64,13 @@
 
         nav ul li {
             display: inline;
-            margin: 0 10px; /* Espaçamento menor */
+            margin: 0 10px; 
         }
 
         nav ul li a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            padding: 8px 15px; /* Padding reduzido */
+            padding: 8px 15px; 
             border: 2px solid rgba(255, 255, 255, 0.8);
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s, color 0.3s;
@@ -80,7 +83,7 @@
         }
 
         main {
-            padding: 70px 20px 20px; /* Ajuste na parte superior para dar espaço ao cabeçalho */
+            padding: 20px 20px 20px; 
             max-width: 800px;
             margin: auto;
             position: relative;
@@ -88,7 +91,7 @@
         }
 
         .section {
-            background: rgba(0, 0, 0, 0.7); /* Mais escuro para melhor contraste */
+            background: rgba(0, 0, 0, 0.7); 
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
@@ -132,14 +135,38 @@
             padding: 10px;
             cursor: pointer;
             transition: background 0.3s;
+            position: relative;
         }
 
         .tips li:hover {
             background: rgba(255, 255, 255, 0.2);
         }
 
+        .tips li::after {
+            content: '↓';
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .tips li.open::after {
+            transform: rotate(180deg);
+        }
+
         .tips p {
             display: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0s 0.3s;
+        }
+
+        .tips li.open p {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s;
         }
 
         .button {
@@ -208,14 +235,30 @@
             color: #ffcc00;
         }
 
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 600px) {
             header h1 {
-                font-size: 1.5em; /* Tamanho menor para dispositivos móveis */
+                font-size: 1.5em;
             }
 
             nav ul li {
                 display: block;
-                margin: 5px 0; /* Ajuste no espaçamento */
+                margin: 5px 0;
             }
 
             nav ul li a {
@@ -223,7 +266,7 @@
             }
 
             main {
-                padding: 80px 10px 20px; /* Ajuste na parte superior para dispositivos móveis */
+                padding: 80px 10px 20px;
             }
         }
     </style>
@@ -245,7 +288,7 @@
     <main>
         <section id="dicas" class="section tips">
             <h2>Dicas para Proteger o Meio Ambiente</h2>
-            <img src="Floresta Paisagem.jpeg" alt="Sustentabilidade" />
+            <img src="Floresta Paisagem.jpeg" alt="Floresta preservada com vida animal" />
             <p>Adote hábitos sustentáveis e faça a diferença. Clique nas dicas para saber mais:</p>
             <ul>
                 <li>
@@ -294,9 +337,8 @@
 
         <section id="sobre" class="section">
             <h2>Quem Somos</h2>
-            <img src="Economia Circular_ Resíduo de espuma vira substrato em projeto socioambiental.jpeg" alt="Nossa Equipe" />
-            <p>Somos uma organização dedicada à promoção da sustentabilidade e proteção do meio ambiente. Nossas iniciativas visam educar e mobilizar a comunidade para adotar práticas que preservem nosso planeta para as futuras gerações.</p>
-            <p>Nosso objetivo é incentivar cada pessoa a fazer a diferença por meio de pequenas ações no dia a dia. Acreditamos que a conscientização é a chave para um futuro mais verde e saudável.</p>
+            <img src="Economia Circular_ Resíduo de espuma vira substrato em projeto socioambiental.jpeg" alt="Equipe trabalhando em projeto de economia circular" />
+            <p>Somos uma organização dedicada à promoção da sustentabilidade e proteção do meio ambiente...</p>
         </section>
 
         <section id="testemunhos" class="section">
@@ -314,11 +356,11 @@
             </div>
         </section>
 
-        <section id="galeria" class="section">
+        <section id="galeria" class="section gallery">
             <h2>Galeria de Projetos</h2>
-            <img src="projeto1.jpg" alt="Projeto 1" />
-            <img src="projeto2.jpg" alt="Projeto 2" />
-            <img src="projeto3.jpg" alt="Projeto 3" />
+            <img src="projeto1.jpg" alt="Projeto de reflorestamento em andamento" />
+            <img src="projeto2.jpg" alt="Equipe participando de limpeza de praia" />
+            <img src="projeto3.jpg" alt="Horta comunitária urbana" />
             <p>Veja como estamos fazendo a diferença na comunidade!</p>
         </section>
 
@@ -334,7 +376,7 @@
             <a href="https://instagram.com" target="_blank">📸</a>
             <a href="https://twitter.com" target="_blank">🐦</a>
         </div>
-        <p>&copy; 2024 Juntos pelo Planeta. Todos os direitos reservados.</p>
+        <p>&copy;<img src="logo.png" alt="Logo Juntos pelo Planeta" Todos os direitos reservados.</p>
     </footer>
 
     <script>
@@ -345,8 +387,7 @@
 
         document.querySelectorAll('.tips li').forEach(item => {
             item.addEventListener('click', () => {
-                const p = item.querySelector('p');
-                p.style.display = p.style.display === 'block' ? 'none' : 'block';
+                item.classList.toggle('open');
             });
         });
     </script>
